@@ -2,9 +2,9 @@
    본문 가독성 (한글 기술 블로그 기준)
    ========================================================================== */
 
-/* 본문 너비 확장 */
+/* 본문 너비 (한글 기준 한 줄 35-40자) */
 :root {
-  --main-width: 900px;
+  --main-width: 760px;
 }
 
 /* 사이트 전체 폰트 (Pretendard로 강제) */
@@ -21,8 +21,8 @@ body,
 
 /* 본문 타이포그래피 */
 .post-content {
-  font-size: 19px;            /* px 직접 지정 */
-  line-height: 1.8;           /* 줄 간격 (한글은 1.7~1.85가 자연스러움) */
+  font-size: 17px;            /* 한글 가독성 표준 */
+  line-height: 1.75;          /* 줄 간격 */
   letter-spacing: -0.01em;    /* 한글 자간 살짝 좁힘 */
   word-break: keep-all;       /* 한글 단어 단위 줄바꿈 */
   word-wrap: break-word;
@@ -36,23 +36,23 @@ body,
 
 /* 헤딩 위아래 여백 */
 .post-content h2 {
-  margin-top: 2.8em;
-  margin-bottom: 0.9em;
-  font-size: 1.75rem;
+  margin-top: 2.5em;
+  margin-bottom: 0.8em;
+  font-size: 1.5rem;
   line-height: 1.4;
 }
 
 .post-content h3 {
-  margin-top: 2em;
-  margin-bottom: 0.7em;
-  font-size: 1.4rem;
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+  font-size: 1.25rem;
   line-height: 1.4;
 }
 
 .post-content h4 {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 /* 리스트 */
@@ -126,5 +126,10 @@ body,
 
 /* 링크 */
 .post-content a {
+  color: #0969da;               /* 라이트모드 (GitHub 스타일) */
   text-underline-offset: 2px;
+}
+
+.dark .post-content a {
+  color: #58a6ff;               /* 다크모드 */
 }
