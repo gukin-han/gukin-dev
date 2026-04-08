@@ -1,6 +1,14 @@
-{{ if .Store.Get "hasMermaid" }}
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  import mediumZoom from 'https://cdn.jsdelivr.net/npm/medium-zoom@1/+esm';
+
+  // Mermaid 렌더링
+  mermaid.initialize({ startOnLoad: false, theme: 'default' });
+  await mermaid.run();
+
+  // 이미지 + Mermaid SVG 클릭 줌
+  mediumZoom('.post-content img, .post-content .mermaid svg', {
+    background: 'rgba(0, 0, 0, 0.85)',
+    margin: 24,
+  });
 </script>
-{{ end }}

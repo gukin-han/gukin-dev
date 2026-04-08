@@ -36,6 +36,8 @@ params:
   socialIcons:
     - name: github
       url: "https://github.com/gukin-han"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/gukin-han-40370b25a/"
     - name: email
       url: "mailto:gukin.han@gmail.com"
 

@@ -8,7 +8,9 @@ tags: ["aws", "ecs", "auto-scaling", "infrastructure"]
 
 ## 1. 서비스 오픈 대비하여 Auto Scaling 켜기
 
-팀에서 담당하는 서비스 오픈이 임박하게 되었고, 가용성 확보를 위해 ECS에 Auto Scaling을 적용해야 했다. 백엔드 팀 내에는 인프라 작업 경험자가 없었고 주니어 입장에서 서비스를 이해하는데 도움될것으로 판단하여 자원하였다. 요청된 작업은 기존에 작성된 AWS CDK를 수정해서 Auto Scaling을 적용하는 것이었다. 개인적으로 인프라 자체도 익숙하지 않았지만, 인프라를 코드로 관리하는 방식인 CDK를 먼저 학습하고 적용하는 과정이 이 작업의 가장 큰 병목점이라고 생각했다. 하지만 적용하는 과정에서 해야했던 고민들과 경험들은 단순하지 않았기 때문에 정리해서 공유한다.
+팀에서 담당하는 서비스 오픈이 임박하게 되었고, 가용성 확보를 위해 ECS에 Auto Scaling을 적용해야 했다. 백엔드 팀 내에는 인프라 작업 경험자가 없었고 주니어 입장에서 서비스를 이해하는데 도움될것으로 판단하여 자원하였다. 
+
+요청된 작업은 기존에 작성된 AWS CDK를 수정해서 Auto Scaling을 적용하는 것이었다. 개인적으로 인프라 자체도 익숙하지 않았지만, 인프라를 코드로 관리하는 방식인 CDK를 먼저 학습하고 적용하는 과정이 이 작업의 가장 큰 병목점이라고 생각했다. 하지만 적용하는 과정에서 해야했던 고민들과 경험들은 단순하지 않았기 때문에 정리해서 공유한다.
 
 ## 2. Auto Scaling 기준값(target value)은 어떻게 판단할까?
 
@@ -156,7 +158,7 @@ flowchart LR
 
 먼저 Auto Scaling을 위해 메트릭과 목표값을 CPU, Ram usage 70%으로 정했다. 이 설정값으로 AWS Cloudwatch는 두 개의 Alarm을 생성한다. 하나는 scale out 목적의 alarmHigh, 다른 하나는 scale in 목적의 alarmLow가 명칭으로 생성된다. 참고로 메트릭은 데이터 수집이 적어도 1분의 interval을 갖는 대상을 선택하기를 권고한다. 너무 긴 interval은 급격한 트래픽 변경에 빠르게 대응하기 어려워지기 때문이다. alarmHigh는 사용자가 입력한 CPU, Ram Usage 70%로 설정된다. 반면에 alarmLow는 설정값보다 10퍼센트 적은 63%로 설정된다. 이에 대한 설명은 위에서 언급한 레퍼런스에 다음과 같은 문장을 통해 확인할 수 있다:
 
-"In this case, it slows down scaling by removing capacity only when utilization passes a threshold that is far enough below the target value (usually more than **10% lower**) for utilization to be considered to have slowed."
+> "In this case, it slows down scaling by removing capacity only when utilization passes a threshold that is far enough below the target value (usually more than **10% lower**) for utilization to be considered to have slowed."
 
 트래픽이 증가할 때 scale out은 사용자가 설정한 값(70%)에서 즉각 발생해야 한다. 반면 scale in은 트래픽이 충분히 안정화되었다고 판단될 때까지 보수적으로 미뤄지는데 그 기준을 목표값의 10% 이상 낮은값(63%)에서 발생하게 한다.
 

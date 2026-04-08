@@ -1,0 +1,130 @@
+/* ==========================================================================
+   본문 가독성 (한글 기술 블로그 기준)
+   ========================================================================== */
+
+/* 본문 너비 확장 */
+:root {
+  --main-width: 900px;
+}
+
+/* 사이트 전체 폰트 (Pretendard로 강제) */
+body,
+.post-content,
+.post-content p,
+.post-content li,
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* 본문 타이포그래피 */
+.post-content {
+  font-size: 19px;            /* px 직접 지정 */
+  line-height: 1.8;           /* 줄 간격 (한글은 1.7~1.85가 자연스러움) */
+  letter-spacing: -0.01em;    /* 한글 자간 살짝 좁힘 */
+  word-break: keep-all;       /* 한글 단어 단위 줄바꿈 */
+  word-wrap: break-word;
+}
+
+/* 문단 간격 */
+.post-content p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+/* 헤딩 위아래 여백 */
+.post-content h2 {
+  margin-top: 2.8em;
+  margin-bottom: 0.9em;
+  font-size: 1.75rem;
+  line-height: 1.4;
+}
+
+.post-content h3 {
+  margin-top: 2em;
+  margin-bottom: 0.7em;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.post-content h4 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-size: 1.2rem;
+}
+
+/* 리스트 */
+.post-content ul,
+.post-content ol {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  padding-left: 1.5em;
+}
+
+.post-content li {
+  margin-bottom: 0.4em;
+  line-height: 1.75;
+}
+
+.post-content li > p {
+  margin-bottom: 0.5em;
+}
+
+/* 코드 블록 */
+.post-content pre {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding: 1.2em 1.4em;
+  margin: 1.6em 0;
+  border-radius: 6px;
+}
+
+/* 인라인 코드 */
+.post-content code {
+  font-size: 0.92em;
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+.post-content pre code {
+  font-size: inherit;
+  padding: 0;
+}
+
+/* 이미지 */
+.post-content img {
+  margin: 1.8em auto;
+  border-radius: 4px;
+}
+
+/* 인용구 */
+.post-content blockquote {
+  margin: 1.5em 0;
+  padding: 0.8em 1.2em;
+  line-height: 1.7;
+}
+
+/* 표 */
+.post-content table {
+  display: table !important;    /* PaperMod가 block으로 설정한 것 override */
+  width: auto !important;        /* 내용에 맞춰서 */
+  margin: 1.5em auto !important; /* 중앙 정렬 */
+  max-width: 100%;
+  font-size: 0.95rem;
+}
+
+.post-content th,
+.post-content td {
+  padding: 0.6em 0.9em;
+}
+
+.post-content th {
+  text-align: center !important; /* 헤더 중앙 */
+}
+
+/* 링크 */
+.post-content a {
+  text-underline-offset: 2px;
+}
