@@ -18,6 +18,7 @@ params:
   description: "백엔드 엔지니어 한국인의 기록"
   author: Gukin Han
   defaultTheme: auto
+  comments: true
   ShowReadingTime: true
   ShowShareButtons: false
   ShowPostNavLinks: true
