@@ -1,0 +1,50 @@
+baseURL: 'https://gukin.dev/'
+languageCode: 'ko-kr'
+title: 'Gukin Han'
+theme: 'PaperMod'
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: Gukin Han
+  description: "백엔드 엔지니어 한국인의 기록"
+  author: Gukin Han
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowToc: true
+  TocOpen: false
+
+  homeInfoParams:
+    Title: "안녕하세요"
+    Content: >
+      백엔드 엔지니어 한국인입니다. 코드와 시스템에 대해 배운 것을 기록합니다.
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/gukin-han"
+    - name: email
+      url: "mailto:gukin.han@gmail.com"
+
+menu:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 10
+    - identifier: archive
+      name: Archive
+      url: /archives/
+      weight: 20
