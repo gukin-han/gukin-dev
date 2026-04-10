@@ -38,6 +38,8 @@ params:
       url: "https://github.com/gukin-han"
     - name: linkedin
       url: "https://www.linkedin.com/in/gukin-han-40370b25a/"
+    - name: googlescholar
+      url: "https://scholar.google.com/citations?user=n5y28NMAAAAJ&hl=ko"
     - name: email
       url: "mailto:gukin.han@gmail.com"
 
